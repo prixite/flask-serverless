@@ -1,6 +1,2 @@
-click==8.0.1
 Flask==2.0.1
-itsdangerous==2.0.1
-Jinja2==3.0.1
-MarkupSafe==2.0.1
-Werkzeug==2.0.1
+git+git://github.com/umair-upwork/zappa.git@d4d5022d8b2#egg=zappa==0.53.0

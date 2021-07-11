@@ -5,3 +5,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return 'Hello world from Flask'
+
+
+@app.route('/cat')
+def cat():
+    return 'Cat'
