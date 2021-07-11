@@ -8,7 +8,6 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [About](#about)
 - [Installation and Configuration](#installation-and-configuration)
   - [Running the Initial Setup / Settings](#running-the-initial-setup--settings)
 - [Basic Usage](#basic-usage)
@@ -84,46 +83,6 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## About
-
-<p align="center">
-  <a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/Miserlou/Talks/master/serverless-sf/big.quickstart.html"><img src="http://i.imgur.com/c23kDNT.png?1" alt="Zappa Slides"/></a>
-</p>
-<p align="center">
-  <i>In a hurry? Click to see <a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/Miserlou/Talks/master/serverless-sf/big.quickstart.html">(now slightly out-dated) slides from Serverless SF</a>!</i>
-</p>
-
-**Zappa** makes it super easy to build and deploy server-less, event-driven Python applications (including, but not limited to, WSGI web apps) on AWS Lambda + API Gateway. Think of it as "serverless" web hosting for your Python apps. That means **infinite scaling**, **zero downtime**, **zero maintenance** - and at a fraction of the cost of your current deployments!
-
-If you've got a Python web app (including Django and Flask apps), it's as easy as:
-
-```
-$ pip install zappa
-$ zappa init
-$ zappa deploy
-```
-
-and now you're server-less! _Wow!_
-
-> What do you mean "serverless"?
-
-Okay, so there still is a server - but it only has a _40 millisecond_ life cycle! Serverless in this case means **"without any permanent infrastructure."**
-
-With a traditional HTTP server, the server is online 24/7, processing requests one by one as they come in. If the queue of incoming requests grows too large, some requests will time out. With Zappa, **each request is given its own virtual HTTP "server"** by Amazon API Gateway. AWS handles the horizontal scaling automatically, so no requests ever time out. Each request then calls your application from a memory cache in AWS Lambda and returns the response via Python's WSGI interface. After your app returns, the "server" dies.
-
-Better still, with Zappa you only pay for the milliseconds of server time that you use, so it's many **orders of magnitude cheaper** than VPS/PaaS hosts like Linode or Heroku - and in most cases, it's completely free. Plus, there's no need to worry about load balancing or keeping servers online ever again.
-
-It's great for deploying serverless microservices with frameworks like Flask and Bottle, and for hosting larger web apps and CMSes with Django. Or, you can use any WSGI-compatible app you like! You **probably don't need to change your existing applications** to use it, and you're not locked into using it.
-
-Zappa also lets you build hybrid event-driven applications that can scale to **trillions of events** a year with **no additional effort** on your part! You also get **free SSL certificates**, **global app deployment**, **API access management**, **automatic security policy generation**, **precompiled C-extensions**, **auto keep-warms**, **oversized Lambda packages**, and **many other exclusive features**!
-
-And finally, Zappa is **super easy to use**. You can deploy your application with a single command out of the box!
-
-__Awesome!__
-
-<p align="center">
-  <img src="http://i.imgur.com/f1PJxCQ.gif" alt="Zappa Demo Gif"/>
-</p>
 
 ## Installation and Configuration
 
@@ -131,7 +90,7 @@ _Before you begin, make sure you are running Python 3.6/3.7/3.8 and you have a v
 
 **Zappa** can easily be installed through pip, like so:
 
-    $ pip install zappa
+    $ pip install -r requirements.tx
 
 Please note that Zappa _**must**_ be installed into your project's [virtual environment](http://docs.python-guide.org/en/latest/dev/virtualenvs/). The virtual environment name should not be the same as the Zappa project name, as this may cause errors.
 
