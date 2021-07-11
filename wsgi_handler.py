@@ -56,13 +56,19 @@ def append_text_mime_types(config):
         serverless_wsgi.TEXT_MIME_TYPES.extend(config["text_mime_types"])
 
 
+def to_native(x, charset=sys.getdefaultencoding(), errors="strict"):
+    if x is None or isinstance(x, str):
+        return x
+    return x.decode(charset, errors)
+
+
 def handler(event, context):
     """ Lambda event handler, invokes the WSGI wrapper and handles command invocation
     """
     if "_serverless-wsgi" in event:
         import shlex
         import subprocess
-        from werkzeug._compat import StringIO, to_native
+        from io import StringIO
 
         native_stdout = sys.stdout
         native_stderr = sys.stderr

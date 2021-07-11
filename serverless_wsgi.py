@@ -15,7 +15,7 @@ from werkzeug.datastructures import Headers, iter_multi_items, MultiDict
 from werkzeug.wrappers import Response
 from werkzeug.urls import url_encode, url_unquote, url_unquote_plus
 from werkzeug.http import HTTP_STATUS_CODES
-from werkzeug._compat import BytesIO, string_types, to_bytes, wsgi_encoding_dance
+from io import BytesIO
 
 # List of MIME types that should not be base64 encoded. MIME types within `text/*`
 # are included by default.
@@ -115,15 +115,16 @@ def get_script_name(headers, request_context):
 def get_body_bytes(event, body):
     if event.get("isBase64Encoded", False):
         body = base64.b64decode(body)
-    if isinstance(body, string_types):
-        body = to_bytes(body, charset="utf-8")
+    if isinstance(body, str):
+        body = body.encode()
     return body
 
 
 def setup_environ_items(environ, headers):
     for key, value in environ.items():
-        if isinstance(value, string_types):
-            environ[key] = wsgi_encoding_dance(value)
+        environ[key] = value
+        if isinstance(value, str):
+            environ[key] = value.encode()
 
     for key, value in headers.items():
         key = "HTTP_" + key.upper().replace("-", "_")
