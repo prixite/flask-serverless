@@ -1,2 +1,4 @@
+mysql-connector-python==8.0.24
 Flask==2.0.1
 git+git://github.com/umair-upwork/zappa.git@d4d5022d8b2#egg=zappa==0.53.0
+Flask-SQLAlchemy==2.2
