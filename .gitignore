@@ -1,3 +1,5 @@
-.venv
+venv/
 .swp
 zappa_settings.json
+.env
+__pycache__
