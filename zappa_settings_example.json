@@ -13,6 +13,7 @@
             "DB_USER": "SOME_USER_HERE",
             "DB_PWD": "SOME_PASSWORD_HERE",
             "DB_NAME": "SOME_DB_NAME_HERE",
+            "REDIS_HOST": "SOME_HOST_HERE",
         }
     }
 }
